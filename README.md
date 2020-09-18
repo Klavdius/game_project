@@ -1,1 +1,1 @@
-# projeck
+# game_project
