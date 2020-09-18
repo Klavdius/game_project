@@ -1,1 +1,1 @@
-{ host  127.0.0.1 , name  root , password   , db_name  dev_db}
+{ "host" : "127.0.0.1" , "name" : "root" , "password" : "" , "db_name" : "dev_db"}

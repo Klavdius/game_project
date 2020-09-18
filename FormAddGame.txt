@@ -1,0 +1,16 @@
+<form method='POST' action='add_games.php'>
+<label>Введите название игры</label>
+<br/>
+<input name='title_game' value='' type=text>
+<br/>
+<label>разработчик игры</label>
+<br/>
+<input name='develGame' value='' type=text>
+<br>
+<label>издатель</label>
+<br/>
+<input name='publiGame' value='' type=text>
+<br/>
+<br/>
+<input type=submit value='Создать запись'> 
+</form>
