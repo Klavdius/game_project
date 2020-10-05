@@ -1,0 +1,20 @@
+<form method='POST' action='add_develPub.php'>
+<label>Введите название разработчиков</label>
+<br/>
+<input name='devel_name' value='' type=text>
+<br/>
+<input type=submit value='Создать запись'> 
+</form>
+<form method='POST' action='add_publish.php'>
+<label> Введите название издателя </lable>
+</br>
+<input name=name_pub type=text>
+</br>
+<input type=submit value='Создать запись'>
+</br>
+</br>
+</form>
+<form method='post' action='add_develPub.php'>
+<br/>
+<a href="MainPost.php">На главную</a>
+</form>

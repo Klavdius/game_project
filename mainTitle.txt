@@ -1,0 +1,14 @@
+<form method='POST' action='MainPost.php'>
+<label> Это будет титульный лист, на котором показываются посты и весь функционал от сюда</label>
+<br/>
+<br/>
+
+<br/>
+<a href="add_games.php">Новая игра</a> 
+<br/>
+<br/>
+
+<a href="add_develPub.php">Новые лица</a>
+</br>
+</br>
+</form>
