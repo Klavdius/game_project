@@ -1,13 +1,24 @@
 <?php
+	include 'pdoconfig.php';
 	
 	
-	$jsData = file_get_contents('conf_dev_db.json');
-	$jsArrData = json_decode($jsData, true);
-	$db = new mysqli($jsArrData["host"] , $jsArrData["name"] , $jsArrData["password"] , $jsArrData["db_name"]);
 	
-	if ($db->connect_errno) {
-		exit("Connection failed: ");
-    }
+	if(!empty($_POST)){
+		$NewTitle = $_POST['title_game'];
+		$NewDevel = $_POST['select_devel']; //   должен быть выбор из разработчиков
+		$NewPubli = $_POST['select_publish']; //   так же поле издателей. или сделать всё 
+		
+		
+		$result = $db->query("INSERT INTO games (title, developer_id, publisher_id) VALUES ('$NewTitle','$NewDevel','$NewPubli')");
+		
+		if($result == true){
+			echo "Записалось";
+		}else{
+			echo "Ошибка";
+		}
+	}
+	
+			
 	
 	//$content = file_get_contents('FormAddGame.txt');
 	//echo $content;
@@ -53,20 +64,7 @@
 	<input type=submit value="Создать запись"></form>';
 	//end html
 	
-	if($_POST != null){
-		$NewTitle = $_POST['title_game'];
-		$NewDevel = $_POST['select_devel']; //   должен быть выбор из разработчиков
-		$NewPubli = $_POST['select_publish']; //   так же поле издателей. или сделать всё 
-		
-		
-		$result = $db->query("INSERT INTO games (title, developer_id, publisher_id) VALUES ('$NewTitle','$NewDevel','$NewPubli')");
-		
-		if($result == true){
-			echo "Записалось";
-		}else{
-			echo "Ошибка";
-		}
-	}
+	
 	
 	
 
