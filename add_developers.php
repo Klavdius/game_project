@@ -2,9 +2,10 @@
 include 'connectBD.php';
 
 	if(!empty($_POST)){
-		$NewDevel = $_POST['devel_name'];
+		$nNewDevel = $_POST['devel_name'];
+		$NewDevel = $db->real_escape_string($nNewDevel);
 		$result = $db->query(
-			"INSERT INTO developers (name)
+			"INSERT INTO `developers` (`name`)
 			VALUE ('$NewDevel')"
 			);
 	}
@@ -18,4 +19,7 @@ include 'connectBD.php';
 		<br/>
 		<br/>
 	<input type=submit value='Создать запись'> 
+		<br/>
+		<br/>
+	<a href="http://127.0.0.1/addGames.php"> Назад </a>	
 </form>	
