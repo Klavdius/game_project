@@ -1,7 +1,0 @@
-<form method='POST' action='add_games.php'>
-<label>Введите название игры</label>
-<br/>
-<input name='title_game' value='' type=text>
-<br/>
-<input type=submit value='Создать запись'> 
-</form>
