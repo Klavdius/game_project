@@ -8,9 +8,12 @@
 		$NewDevel = $_POST['select_devel']; //   должен быть выбор из разработчиков
 		$NewPubli = $_POST['select_publish']; //   так же поле издателей. или сделать всё 
 		$NewGenres = $_POST['select_genres'];
+		$nNewDes = $_POST['description'];
 		
 		$NewTitle = $db->real_escape_string($nNewTitle);
-		$result = $db->query("INSERT INTO `games` (`title`, `developer_id`, `publisher_id`, `genres`) VALUES ('$NewTitle','$NewDevel','$NewPubli','$NewGenres')");
+		$NewDes = $db->real_escape_string($nNewDes);
+		$result = $db->query("INSERT INTO `games` (`title`, `developer_id`, `publisher_id`, `genres`, `description`) 
+		VALUES ('$NewTitle','$NewDevel','$NewPubli','$NewGenres','$NewDes')");
 			
 	}
 	// start html
@@ -50,5 +53,7 @@
 ?>
 		</select>
 		<a href="http://127.0.0.1/addGenres.php"> + </a> <br/><br/>
+		<label> Описание игры </label> <br/>
+		<input name='description' type=text> <br/><br/> 
 		<input type=submit value="Создать запись">
 	</form>
