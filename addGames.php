@@ -9,11 +9,13 @@
 		$NewPubli = $_POST['select_publish']; //   так же поле издателей. или сделать всё 
 		$NewGenres = $_POST['select_genres'];
 		$nNewDes = $_POST['description'];
+		$NewReleaseDate = $_POST['release'];
+		
 		
 		$NewTitle = $db->real_escape_string($nNewTitle);
 		$NewDes = $db->real_escape_string($nNewDes);
-		$result = $db->query("INSERT INTO `games` (`title`, `developer_id`, `publisher_id`, `genres`, `description`) 
-		VALUES ('$NewTitle','$NewDevel','$NewPubli','$NewGenres','$NewDes')");
+		$result = $db->query("INSERT INTO `games` (`title`, `developer_id`, `publisher_id`, `genres`, `description`, `release_date`, `created_at`) 
+		VALUES ('$NewTitle','$NewDevel','$NewPubli','$NewGenres','$NewDes', '$NewReleaseDate', NOW())");
 			
 	}
 	// start html
@@ -55,5 +57,8 @@
 		<a href="http://127.0.0.1/addGenres.php"> + </a> <br/><br/>
 		<label> Описание игры </label> <br/>
 		<input name='description' type=text> <br/><br/> 
+		
+		<input type=date name="release"> <br/><br/> 
+
 		<input type=submit value="Создать запись">
 	</form>
