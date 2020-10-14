@@ -30,9 +30,9 @@
 
 
 <form method="POST" action="addUser.php">
-	<label>Введите имя (login)</label><br/><br/>
+	<label>Введите имя (login)</label><br/>
 	<input type=text name='new_user'><br/><br/>
-	<label>Почтовый ящик</label><br/><br/>
+	<label>Почтовый ящик</label><br/>
 	<input type=text name='new_mail'><br/><br/>
 	<label>Ваш пароль</label><br/>
 	<input type=password name='new_pass'><br/><br/>
