@@ -1,4 +1,6 @@
 <?php
+	session_destroy();
+	session_start();
 	include "connectBD.php";
 	
 	if(!empty($_POST)){
@@ -17,9 +19,10 @@
 					echo "Не верный пароль";
 				}else
 				{
-					$passportArr[1] = $ChekArr['username'];
-					$passportArr[2] = $ChekArr['password'];
-					setcookie("passport",$passportArr);
+					$realId = $ChekArr['id'];
+					$_SESSION['IdUser'] = $realId;
+					$_SESSION['UserName'] = $verifName;
+					$_SESSION['Password'] = $verifPass;
 					header("Location: http://127.0.0.1/MainPost.php/");
 				}
 			}
