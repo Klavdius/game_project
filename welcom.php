@@ -1,5 +1,7 @@
 <?php
-	session_destroy();
+	if (!empty($_SESSION)){
+		session_destroy();
+	}	
 	session_start();
 	include "connectBD.php";
 	
