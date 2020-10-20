@@ -30,16 +30,11 @@
 
 
 <form method="POST" action="addUser.php">
-	<label>Введите имя (login)</label><br/>
-	<input type=text name='new_user'><br/><br/>
-	<label>Почтовый ящик</label><br/>
-	<input type=text name='new_mail'><br/><br/>
-	<label>Ваш пароль</label><br/>
-	<input type=password name='new_pass'><br/><br/>
-	<label>Повторите пароль</label><br/>
-	<input type=password name='new_pass2'><br/><br/>
-	<label>Пару слов о себе? (необязательно)</label><br/>
-	<input type=text name='new_descri'><br/>
+	<input type=text name='new_user' placeholder='Введите имя (login)'><br/><br/>
+	<input type=text name='new_mail' placeholder='Почтовый ящик'><br/><br/>
+	<input type=password name='new_pass' placeholder='Ваш пароль'><br/><br/>
+	<input type=password name='new_pass2' placeholder='Повторите пароль'><br/><br/>
+	<input type=text name='new_descri' placeholder='Пару слов о себе? (необязательно)'><br/>
 	<label>День рожденья </label><br/>
 	<input type=date name="new_dob"> <br/><br/>
 	<input type=submit value='Зарегестрироваться'><br/>

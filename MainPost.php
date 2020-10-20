@@ -2,7 +2,10 @@
 	session_start();
 	
 	include "connectBD.php";
-		
+	if(!empty($_POST)){
+		$_SESSION['valueTit'] = $_POST['valueTit'];
+		header("Location: http://127.0.0.1/scanPost.php/");
+	}	
 ?>
 
 <form method='POST' action='MainPost.php'>

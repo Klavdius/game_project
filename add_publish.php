@@ -13,9 +13,7 @@ include 'connectBD.php';
 ?>
 
 <form method='POST' action='add_publish.php'>
-	<label> Введите название издателя </label>
-		<br/>
-	<input type=text name='name_pub' value=''>
+	<input type=text name='name_pub' placeholder='Введите название издателя'>
 		<br/>
 		<br/>
 	<input type=submit value=' Создать запись '>

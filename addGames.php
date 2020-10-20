@@ -21,8 +21,7 @@
 	// start html
 ?>	
 	<form method='POST' action='addGames.php'>
-		<label> Введите название игры </label> <br/><br/>
-		<input name='title_game' type=text> <br/><br/>
+		<input name='title_game' type=text placeholder='Введите название игры'> <br/><br/>
 		<label> Выберите разработчика </label> <br/>
 		<select name="select_devel">
 <?php	
@@ -55,8 +54,7 @@
 ?>
 		</select>
 		<a href="http://127.0.0.1/addGenres.php"> + </a> <br/><br/>
-		<label> Описание игры </label> <br/>
-		<input name='description' type=text> <br/><br/> 
+		<input name='description' type=text placeholder='Описание игры'> <br/><br/> 
 		
 		<input type=date name="release"> <br/><br/> 
 

@@ -34,8 +34,7 @@
 	</select><br/>
 	<label>Не нашли свою игру? Добавьте её! </label><br/>
 	<a href="http://127.0.0.1/addGames.php">Добавить игру</a><br/><br/>
-	<label>Текст</label><br/>
-	<input type=text name='mainText'><br/>
+	<input type=text name='mainText' placeholder='Текст'><br/>
 	<input type=submit value='Опубликовать'><br/><br/>
 	
 	<a href="http://127.0.0.1/MainPost.php">Вернуться назад</a><br/><br/>

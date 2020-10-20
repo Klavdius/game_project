@@ -6,14 +6,13 @@ if(!empty($_POST)){
 	$NewGenres = $db->real_escape_string($nNewGenres);
 	$result = $db->query("
 	INSERT INTO `genres` (`name`) 
-	VALUE ('$NewGenres')
+	VALUES ('$NewGenres')
 	");
 }
 ?>
 
 <form method='POST' action='addGenres.php'>
-	<label> Введите название жанра </label> <br/>
-	<input type=text name='name_genres' value=''><br/><br/>
+	<input type=text name='name_genres' placeholder='Введите название жанра'><br/><br/>
 	<input type=submit value="Добавить жанр"> <br/><br/>
 <a href="http://127.0.0.1/addGames.php"> Вернуться </a>
 </form>
