@@ -7,26 +7,61 @@
  	$row = $result->fetch_assoc();
 	$idPost = $row['id'];
 	
+	$likes = $db->query("SELECT * FROM `likes` WHERE likes.post_id = '$idPost' ");
+	$like = 0;
+	while($arrLikes = $likes->fetch_assoc()){
+			if($arrLikes['value'] = 1){
+				$like = $like + 1;
+			}else{
+				$like = $like - 1;
+			}
+	}
 	if(!empty($_POST)){
-		$nNewText = $_POST['newComment'];
-		$NewText = $db->real_escape_string($nNewText);
-		$NewIdPost = $idPost;
-		$NewAuthorId = $_SESSION['IdUser'];
+		if(!empty($_POST['SendCom']) ){
+			$nNewText = $_POST['newComment'];
+			$NewText = $db->real_escape_string($nNewText);
+			$NewAuthorId = $_SESSION['IdUser'];
 		
-		$resultComment = $db->query("INSERT INTO `comments` (`post_id`,`author_id`,`text`,`created_at`) VALUES ('$NewIdPost','$NewAuthorId','$NewText', NOW())");
+			$resultComment = $db->query("INSERT INTO `comments` (`post_id`,`author_id`,`text`,`created_at`) VALUES ('$idPost','$NewAuthorId','$NewText', NOW())");
+		}
+		if(!empty($_POST['negativ'])){
+			$flagNeg = 0;
+			while($arrLikes){
+				if($NewAuthorId == $arrLikes['user_id'] and $arrLikes['value'] == 0){
+					$flagNeg = $flagNeg + 1;
+					break;
+				}
+			}
+			if($flagNeg == 0){
+				$NewAuthorId = $_SESSION['IdUser'];
+				$resultNeg = $db->query("INSERT INTO `likes` (`post_id`, `user_id`, `value`, `created_at`) VALUES ('idPost','NewAuthorId','0', NOW())");
+			}
+		}
+		if(!empty($_POST['positiv'])){
+			
+		}
 	}
 ?>
 
 <form method='POST' action='scanPost.php'>
 	<div class=title><?php echo $_SESSION['valueTit'];?></div><br/>
 	<div class=mainText><?php echo $row['content'];  ?></div><br/>
+	<div class=like>
+		<?php
+			// 0 - negativ like
+			// 1 - positiv like
+			echo "<input type=submit name=negativ value='-'>  ";
+			$valueLike = 0 + $like;
+			echo $valueLike . "  ";
+			echo "<input type=submit name=positiv value='+'>  ";
+		?>
+	</div><br/>
 	<div class=bottom>
 		<input type=text name='newComment' placeholder='Новый комментарий'>
-		<input type=submit value='Опубликовать'>
+		<input type=submit name=SendCom value='Опубликовать'>
 		<div class=comment>
 			<?php
 				$resComment = $db->query("SELECT * FROM `comments`, `users` WHERE comments.post_id = '$idPost' AND comments.author_id=users.id");
-	
 				while($rowCom = $resComment->fetch_assoc()){
 				echo "<label>" .$rowCom['username']. "</label><br/>";
 				echo "<label>" .$rowCom['text']. "</label><br/><br/>";
