@@ -1,14 +1,14 @@
 <?php
 	if (!empty($_SESSION)){
 		session_destroy();
-	}	
+	}
 	session_start();
 	include "connectBD.php";
-	
+
 	if(!empty($_POST)){
 		$verifName = $_POST['user_name'];
 		$verifPass = $_POST['pass_user'];
-		
+
 		$Chek = $db->query("SELECT * FROM `users`");
 		while($ChekArr = $Chek->fetch_assoc())
 		{
@@ -25,16 +25,16 @@
 					$_SESSION['IdUser'] = $realId;
 					$_SESSION['UserName'] = $verifName;
 					$_SESSION['Password'] = $verifPass;
-					header("Location: http://127.0.0.1/MainPost.php/");
+					header("Location: /MainPost.php/");
 				}
 			}
 		}
 	}
 ?>
 
-<form method='POST' action='welcom.php'>
+<form method='POST' action='/welcom.php'>
 	<input type=text name='user_name' placeholder='Введите имя'><br/><br/>
 	<input type=password name='pass_user' placeholder='Введите пароль'><br/><br/>
 	<input type=submit value='Зайти'>
-	<a href='http://127.0.0.1/addUser.php'>Зарегистрироваться </a>
+	<a href='/addUser.php'>Зарегистрироваться </a>
 </form>
