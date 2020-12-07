@@ -9,7 +9,7 @@
 	
 	$name = $db->real_escape_string($nname);
 	$post = $db->real_escape_string($npost);
-	$nmevalue = $db->real_escape_string($nmevalue);
+	$mevalue = $db->real_escape_string($nmevalue);
 	
 	//проверка на оригинальность
 	$OneStep = $db->query("SELECT * from `likes` WHERE likes.post_id = $post AND likes.user_id = $name ");
